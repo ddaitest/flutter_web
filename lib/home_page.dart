@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as FSP;
+import 'package:worker_web/pages/edit_page.dart';
 
 import 'common.dart';
 
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
                 H20,
                 _header(),
                 _top(),
-                _join(),
+                _join(context),
               ],
             ),
             decoration: BoxDecoration(
@@ -125,7 +126,7 @@ class HomePage extends StatelessWidget {
   TextEditingController controllerName = TextEditingController();
   TextEditingController controllerPhone = TextEditingController();
 
-  _join() {
+  _join(BuildContext context) {
     return Container(
       width: 800,
       margin: EdgeInsets.only(top: 80),
@@ -164,7 +165,13 @@ class HomePage extends StatelessWidget {
                 )),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => EditPage(),
+                ),
+              );
+            },
             child: Container(
               width: 120,
               height: 50,
